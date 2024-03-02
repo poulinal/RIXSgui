@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--Alex Poulin-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="static/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/style.css">
+    <title>RIXS Configuration</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+          }
+        
+          th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+          }
+        
+          th {
+            background-color: #f2f2f2;
+          }
+    </style>
+</head>
+
+
+<body>
+    <!--<div id="sensorContainer"></div>-->
+    <div id="error" class="sensor-value"></div>
+    <div class="box" >
+        <form>
+            <label for="fname">Active Core:</label>
+            <input type="text" id="shell_name1" name="activecore"><br>
+            <label for="fname">Valence Orbitals:</label>
+            <input type="text" id="shell_name2" name="valenceorbitals"><br>
+
+        <label for="fname">Active Core:</label>
+        <input type="number" id="v_noccu" name="valence" min="0" max="10"><br>
+
+        <!--
+        <select id="testTypeDropdown" onchange="updateBatches()"></select>
+
+        <select id="batchDropdown" onchange="updateCommands()"></select>
+
+        <select id="commandDropdown"></select>
+
+        <p id="lastStateCommandSent">&nbsp;Last Sent: UNKNOWN</p>
+
+        <p>&nbsp;&nbsp;</p>
+        <select id="sequenceDropdown"></select>
+        <p>&nbsp;Sequences Enabled:</p>&nbsp;<input type="checkbox" id="sequenceCheckbox" value="sequenceBoxChecked">
+        -->
+        
+
+    </div>
+
+    <br>
+
+    <div class="grid-container-small">
+        <div class="grid-item-small">
+        <div class="box">
+            <button class="importantBtn" onclick="sendStateCommand()">SEND COMMAND</button>
+            <br><br>
+            <p id="currentTestStandState">Current State: UNKNOWN</p>
+            <br><br>
+            <p id="lastMessage">Last Message: UNKNOWN</p>
+            <br><br>
+            <p id="pneumaticSysPress">Available Pneumatic Pressure: NA</p>
+            <br><br><br>
+            <button class="dangerBtn" onclick="forceSetOnlineSafe()">ONLINE SAFE</button>
+            <br><br><br>
+            <button class="cautiousBtn" id="sequencerButton" onclick="sendSequenceCommand()" disabled>EXECUTE SEQUENCE</button>
+        </div>
+        </div>
+        <div class="grid-item-small">
+            <div class="box">
+                <div class="wrapped-container">
+                    <div id="sensorContainer" style="color: white;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    
+    <div class="box">
+        <div id="override-buttons" class="grid-container-overrides"></div>
+        <button id="overrideBtn" class="importantBtn" onclick="sendOverrideCommand()" disabled>SET STATES</button>
+        <p id="lastSentOverrideAt">Last Sent override at: NA</p>
+        <p>&nbsp; | &nbsp;Enable Override:</p> <input type="checkbox" id="overrideCheckbox" value="enableOverrideChecked">
+    </div>
+    
+    <br>
+    
+    
+    <h2>Periodic Table</h2>
+
+<table>
+  <tr>
+    <th>Element</th>
+    <th>Symbol</th>
+    <th>Atomic Number</th>
+    <th>Atomic Mass</th>
+  </tr>
+  <tr>
+    <td>Hydrogen</td>
+    <td>H</td>
+    <td>1</td>
+    <td>1.008</td>
+  </tr>
+  <!-- Add more rows for other elements -->
+</table>
+
+    |<div class="grid-container">
+        <div class="grid-item">
+            <div id="chart1"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_1" value="pressureSensorsChecked" checked>
+        </div>
+        <div class="grid-item">
+            <!--<div id="chart2"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_2" value="tempSensorsChecked" checked>-->
+            <div id="chart3"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_3" value="loadSensorsChecked" checked>
+        </div>
+        <div class="grid-item">
+            <!--<div id="chart3"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_3" value="loadSensorsChecked" checked>-->
+            <div id="chart2"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_2" value="tempSensorsChecked" checked>
+        </div>
+        <div class="grid-item">
+            <div id="chart4"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_4" value="pressureSensors2Checked">
+        </div>
+      </div>
+
+    <br>
+    <!--<button onclick="downloadJSONFile()">Download current JSON</button>-->
+    
+
+    <br>
+
+    <script src=".//resources/script.js"></script>
+
+    <script>
+        
+    </script>
+</body>
+
+</html>

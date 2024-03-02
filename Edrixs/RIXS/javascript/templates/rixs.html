@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- Alex Poulin -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <title>RIXS Configuration</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .box {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="container">
+        <h2>DeLTA Lab RIXS GUI</h2>
+        <div id="input" class="input-field"></div>
+
+        <!-- imports -->
+        <div class="box">
+            <h2>Parameters</h2>
+            <form>
+                <div class="grid-container-small">
+                    <div class="grid-item-small">
+                        <label for="valenceorbitals">Valence Orbitals:</label>
+                        <input class="textinput" type="text" id="valenceorbitals" placeholder="Such as t2g">
+
+                        <label for="active_core">Active Core:</label>
+                        <input class="textinput" type="text" id="active_core" placeholder="Such as p32">
+
+                        <label for="v_noccu">Valence Occupancy:</label>
+                        <input class="textinput" type="number" id="v_noccu" name="valence" min="0" max="10" placeholder="Such as 5">
+                    </div>
+                    <div class="grid-item-small">
+                        <label for="Ud">Hund's </label>
+                        <input class="textinput" type="number" id="Ud" placeholder="Such as 2">
+
+                        <label for="Jh">Jh:</label>
+                        <input class="textinput" type="number" id="Jh" placeholder="Such as 0.25" step="0.01">
+
+                        <label for="lambda">Spin-Orbit-Coupling:</label>
+                        <input class="textinput" type="number" id="lambda" name="spin-orbit-coupling" placeholder="Such as 0.42" step="0.01">
+                    </div>
+                </div>
+            </form>
+
+            <h2>X-Ray Transition</h2>
+            <div class="grid-item-small">
+                <label for="atomDropdown">Atom:</label>
+                <select id="atomDropdown" onchange="updateBatches()">
+                    <option value="" disabled selected>Select an Option</option>
+                </select>
+
+                <label for="shellDropdown">Shell:</label>
+                <select id="shellDropdown">
+                    <option value="" disabled selected>Select an Option</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- sendButton -->
+        <div class="grid-container-small">
+            <div class="box">
+                <button class="startButton" onclick="sendRixsCommand()">START RIXS</button>
+            </div>
+        </div>
+
+        <!-- OUTPUT section -->
+        <div class="box">
+            <h2>RIXS Output:</h2>
+            <div class="grid-item">
+                <div id="table">
+                    <p>Summary of Slater integrals:</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div id="chart"></div>
+                <p>Plots:</p>
+            </div>
+            <div class="grid-item">
+                <div id="chart1"></div>
+                <p>Export Chart? <input type="checkbox" id="checkbox_1" value="pressureSensorsChecked" checked></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/script.js"></script>
+</body>
+
+</html>

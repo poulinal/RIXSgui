@@ -1,0 +1,9 @@
+// to doooo
+
+//add functionality (either pure or colab [docker?])
+//potentially add advanced tab for more settings?
+// add export plot
+// add plot settings
+//potentially add seperate tabs, one for parameters another for output
+
+//look up slater integrals

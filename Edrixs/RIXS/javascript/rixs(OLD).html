@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--Alex Poulin-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="static/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="../resources/style.css">
+    <title>RIXS Configuration</title>
+    <style>
+        .input-field{
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="input" class="input-field"></div>
+    <div class="box">
+        <form>
+            <label for="fname">Valence Orbitals:</label>
+            <input class="textinput" type="text" id="valenceorbitals" placeholder="t2g"><br>
+            <label for="fname">Active Core:</label>
+            <input class="textinput" type="text" id="active_core" placeholder="p32"><br>
+
+            <label for="fname">Active Core:</label>
+            <input class="textinput" type="number" id="v_noccu" name="valence" min="0" max="10">
+        </form>
+    <br>
+        <h2>Periodic Table</h2>
+        <div class="grid-item-small">
+            <label for="fname">Atom:</label>
+            <select id="atomDropdown" onchange="updateBatches()"></select>
+            <label for="fname">Shell:</label>
+            <select id="shellDropdown"></select>
+        </div>  
+    </div>
+
+    <br>
+
+    <div class="grid-container-small">
+        <div class="box">
+            <button class="importantBtn" onclick="sendStateCommand()">START RIXS</button>
+            <br><br>
+            <!--
+            <p id="currentTestStandState">Current State: UNKNOWN</p>
+            -->
+        </div>
+    </div>
+    
+
+
+
+    <!-- OUTPUT section -->
+    |<div class="box">
+        <h2>RIXS Output:</h2>
+        <div class="grid-item">
+            <div id="chart1"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_1" value="pressureSensorsChecked" checked>
+        </div>
+        <div class="grid-item">
+            <div id="chart3"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_3" value="loadSensorsChecked" checked>
+        </div>
+        <div class="grid-item">
+            <div id="chart2"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_2" value="tempSensorsChecked" checked>
+        </div>
+        <div class="grid-item">
+            <div id="chart4"></div>
+            <p>Enable/Disable:</p> <input type="checkbox" id="checkbox_4" value="pressureSensors2Checked">
+        </div>
+    </div>
+
+
+    <br>
+
+    <script src=".//resources/script.js"></script>
+
+</body>
+
+</html>
